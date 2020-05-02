@@ -2,16 +2,15 @@ import java.util.*;
 import java.io.BufferedReader; 
 import java.io.IOException; 
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 public class ActivitySelectionProblem{    
-  public static void main(String []args){             
+  public static void main(final String []args){             
         try
         {                          
-      InputStreamReader r=new InputStreamReader(System.in);    
-      BufferedReader br=new BufferedReader(r); 
-      String[] s1 = br.readLine().trim().split(" "); 
-      String[] s2 = br.readLine().trim().split(" "); 
-      Map<Integer, Integer> treeMap = new TreeMap<Integer,Integer>(); 
+      final InputStreamReader r=new InputStreamReader(System.in);    
+      final BufferedReader br=new BufferedReader(r); 
+      final String[] s1 = br.readLine().trim().split(" "); 
+      final String[] s2 = br.readLine().trim().split(" "); 
+      final Map<Integer, Integer> treeMap = new TreeMap<Integer,Integer>(); 
       
       for(int i =0 ;i<s1.length;i++)
       {  
@@ -20,9 +19,9 @@ public class ActivitySelectionProblem{
 
       int c =0 ;
       int p_f  = 0;
-      for (Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
-            int s = entry.getValue(); 
-            int f = entry.getKey();
+      for (final Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
+            final int s = entry.getValue(); 
+            final int f = entry.getKey();
         if(c ==0)
             {
                 c++;
@@ -40,7 +39,7 @@ public class ActivitySelectionProblem{
 
     System.out.println(c);
         }
-        catch(Exception e)
+        catch(final Exception e)
         {
                 System.out.println(e);
         }
