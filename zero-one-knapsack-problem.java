@@ -1,58 +1,47 @@
-import java.util.*; 
-import java.io.BufferedReader; 
-import java.io.IOException; 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
-public class HelloWorld{
-    static int  maximizeProfit(int[] profit,int[] weight, int capacity,  int currIndex)
+public class knapsack {
+
+    public static int knapsack(int[] value, int[] weight, int w, int n)
     {
-          //Base Condition #1 -> Check if the capacity has become less than zero 
-          // Base Condition #2 -> Check if currIndex is exceeding the length of array 
-          if(capacity<=0 || currIndex>= profit.length)
-                return 0;           
-          
-        int p1 = 0;
-        if(weight[currIndex]<=capacity)
-            p1 = profit[currIndex] + maximizeProfit(profit, weight, capacity - weight[currIndex], currIndex+1);
-        System.out.println("Profit1 -> " + p1);    
-        int p2 = maximizeProfit(profit, weight, capacity, currIndex+1);
-        System.out.println("Profit2 -> " + p2);
-    
-        return Math.max(p1,p2);
+        if(n==0||w==0)
+            return 0 ; 
+
+        if(weight[n-1] <= w)
+            
+            return Math.max(value[n-1] + knapsack(value,weight, w-weight[n-1], n-1), knapsack(value,weight,w, n-1));
+        else
+           return knapsack(value, weight, w, n-1);
+
+
+    }
+    public static void main(String[] args) throws IOException
+    {
+  
+      InputStreamReader r=new InputStreamReader(System.in);    
+      BufferedReader br=new BufferedReader(r); 
+      int item = Integer.parseInt(br.readLine());  
+      String[] w = br.readLine().trim().split(" "); 
+      String[] v= br.readLine().trim().split(" ");
+      int[] weight = new int[item];
+      int[] value = new int[item];
+        
+      for(int i =0 ;i<item;i++)
+      {
+        weight[i] = Integer.parseInt(w[i]);
+        value[i] = Integer.parseInt(v[i])   ;
+      }
+        int target = Integer.parseInt(br.readLine());
+        // int val[] = new int[]{60, 100, 120}; 
+        // int wt[] = new int[]{10, 20, 30}; 
+        // int  W = 50; 
+        // int n = val.length; 
+        // System.out.println(knapsack(val,wt,W,n));  
+      
+      System.out.println(knapsack(value, weight, target , item)) ;
     
     }
-    
-         public static void main(String []args){
-             
-        try
-        {
-             
-             
-            InputStreamReader r=new InputStreamReader(System.in);    
-      BufferedReader br=new BufferedReader(r); 
-      String[] s = br.readLine().trim().split(" "); 
-      String[] t = br.readLine().trim().split(" "); 
-      int[] profit= new int[s.length];
-      int[] weight= new int[t.length];
 
-      for(int i =0 ;i<s.length;i++)
-      {  
-            profit[i] = Integer.parseInt(s[i]);
-      }
-      
-      for(int i =0 ;i<t.length;i++)
-      {  
-            weight[i] = Integer.parseInt(t[i]);
-      }
-      int capacity = Integer.parseInt(br.readLine()); 
-    System.out.println("Maximum profit is  : " + maximizeProfit(profit, weight,capacity,0)); 
-
-        }
-        catch(Exception e)
-        {
-                System.out.println(e);
-        }
-
-     }
 }
