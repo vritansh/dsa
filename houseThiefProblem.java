@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class HelloWorld{
+public class houseThiefProblem{
     static int  makeTheft(int[] arr, int currIndex)
     {
         
