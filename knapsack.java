@@ -8,6 +8,7 @@ public class knapsack {
     {
         if(n==0||w==0)
             return 0 ; 
+        
 
         if(weight[n-1] <= w)
             
@@ -22,7 +23,7 @@ public class knapsack {
 
         
      InputStreamReader r=new InputStreamReader(System.in);    
-      BufferedReader br=new BufferedReader(r); 
+     BufferedReader br=new BufferedReader(r); 
       int item = Integer.parseInt(br.readLine());  
       String[] w = br.readLine().trim().split(" "); 
       String[] v= br.readLine().trim().split(" ");

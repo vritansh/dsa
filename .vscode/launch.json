@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - SubsetSum",
+            "request": "launch",
+            "mainClass": "SubsetSum",
+            "projectName": "dsa_ed1757e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - KnapsackMemoize",
+            "request": "launch",
+            "mainClass": "KnapsackMemoize",
+            "projectName": "dsa_ed1757e"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
